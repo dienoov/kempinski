@@ -312,6 +312,10 @@ header nav.scrolled h1 {
     #about article {
         flex-direction: column;
     }
+
+    #about .images {
+        display: none;
+    }
 }
 
 #inside {
