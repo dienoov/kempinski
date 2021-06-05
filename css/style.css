@@ -14,6 +14,12 @@
     src: url("../fonts/Ranua-Regular.otf");
 }
 
+@font-face {
+    font-family: Ranua;
+    src: url("../fonts/Ranua-Demi.otf");
+    font-weight: 500;
+}
+
 :root {
     --kempinski-black: #1d1d1d;
     --kempinski-dark-slate: #47655d;
@@ -38,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 a {
@@ -58,11 +64,15 @@ nav {
     padding-bottom: 1.5rem;
     border-bottom: .1rem solid rgba(255, 255, 255, .3);
     z-index: 1;
+    transition-property: background-color, width, left, padding;
+    transition-duration: .15s;
+    transition-timing-function: ease-out;
 }
 
 nav h1 {
     color: white;
     text-transform: lowercase;
+    font-weight: 500;
     margin: 0;
     font-size: 2rem;
     font-family: Ranua, sans-serif;
@@ -72,6 +82,19 @@ nav .btn::before {
     content: "Make a ";
 }
 
+nav.scrolled {
+    background-color: var(--kempinski-white);
+    left: 0;
+    width: 100%;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    border-bottom: none;
+}
+
+nav.scrolled h1 {
+    color: var(--kempinski-black);
+}
+
 @media screen and (max-width: 576px) {
     nav {
         left: 1rem;
@@ -79,11 +102,16 @@ nav .btn::before {
     }
 
     nav h1 {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
     }
 
     nav .btn::before {
         display: none;
+    }
+
+    nav.scrolled {
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
 }
 
@@ -186,5 +214,98 @@ nav .btn::before {
 
     #slider .indicators {
         left: 1rem;
+    }
+}
+
+#about {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+#about article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+#about article > * {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    flex-basis: 45%;
+}
+
+#about img {
+    width: 100%;
+    height: calc(100vh - 10rem);
+    object-fit: cover;
+    display: none;
+}
+
+#about img.active {
+    display: block;
+    animation: slider-fade 1s;
+}
+
+#about .indicators {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+}
+
+#about .indicators li {
+    height: .5rem;
+    width: .5rem;
+    border-radius: 100%;
+    margin-right: .75rem;
+    background-color: var(--kempinski-black);
+    opacity: .6;
+    transition: opacity .15s ease-out;
+}
+
+#about .indicators li:hover {
+    cursor: pointer;
+}
+
+#about .indicators li.active {
+    opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+    #about {
+        min-height: auto;
+    }
+
+    #about article {
+        align-items: stretch;
+    }
+
+    #about article > * {
+        flex-basis: 50%;
+    }
+
+    #about h2 {
+        font-size: 2rem;
+    }
+
+    #about img {
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #about article {
+        flex-direction: column;
     }
 }
