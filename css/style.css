@@ -25,11 +25,16 @@
     --kempinski-dark-slate: #47655d;
     --kempinski-light-slate: #83928f;
     --kempinski-gray: #c9c9c9;
+    --kempinski-light-gray: #eaeaea;
     --kempinski-white: #ffffff;
 }
 
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -52,7 +57,7 @@ a {
     color: inherit;
 }
 
-nav {
+header nav {
     position: fixed;
     top: 0;
     left: 3rem;
@@ -69,7 +74,7 @@ nav {
     transition-timing-function: ease-out;
 }
 
-nav h1 {
+header nav h1 {
     color: white;
     text-transform: lowercase;
     font-weight: 500;
@@ -78,11 +83,11 @@ nav h1 {
     font-family: Ranua, sans-serif;
 }
 
-nav .btn::before {
+header nav .btn::before {
     content: "Make a ";
 }
 
-nav.scrolled {
+header nav.scrolled {
     background-color: var(--kempinski-white);
     left: 0;
     width: 100%;
@@ -90,25 +95,25 @@ nav.scrolled {
     border-bottom: none;
 }
 
-nav.scrolled h1 {
+header nav.scrolled h1 {
     color: var(--kempinski-black);
 }
 
 @media screen and (max-width: 576px) {
-    nav {
+    header nav {
         left: 1rem;
         width: calc(100% - 2rem);
     }
 
-    nav h1 {
+    header nav h1 {
         font-size: 1.75rem;
     }
 
-    nav .btn::before {
+    header nav .btn::before {
         display: none;
     }
 
-    nav.scrolled {
+    header nav.scrolled {
         padding-right: 1rem;
         padding-left: 1rem;
     }
@@ -392,5 +397,116 @@ nav.scrolled h1 {
     #reservation .room img {
         margin-left: -1rem;
         width: calc(100% + 2rem);
+    }
+}
+
+footer {
+    background-color: var(--kempinski-light-gray);
+    padding: 5rem;
+}
+
+footer h2 {
+    font-weight: 500;
+    font-size: 2.5rem;
+    text-transform: lowercase;
+    margin-top: 0;
+    margin-bottom: 4rem;
+}
+
+footer .wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+footer nav {
+    display: flex;
+}
+
+footer nav ul {
+    margin-right: 5rem;
+    padding-left: 0;
+    list-style: none;
+}
+
+footer nav ul li {
+    margin-bottom: 1rem;
+}
+
+footer nav ul li a::after {
+    content: "";
+    display: block;
+    background-color: var(--kempinski-black);
+    height: .1rem;
+    width: 0;
+    transition: width .15s ease-out;
+}
+
+footer nav ul li a:hover::after {
+    width: 2rem;
+}
+
+footer form label {
+    display: block;
+    font-size: 1.125rem;
+    font-family: Ranua, sans-serif;
+    font-weight: 500;
+}
+
+footer form input {
+    display: block;
+    width: 25rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-bottom: .1rem solid var(--kempinski-gray);
+    padding: .625rem .125rem;
+    background-color: transparent;
+    font-family: "Sk Modernist", sans-serif;
+    font-size: 100%;
+}
+
+footer form input:focus {
+    outline: none;
+    border-bottom: .1rem solid var(--kempinski-black);
+}
+
+footer .copyright {
+    border-top: .1rem solid var(--kempinski-black);
+    padding-top: 5rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    footer {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    footer nav ul {
+        margin-right: 2.5rem;
+    }
+
+    footer form input {
+        width: 14rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    footer .wrapper {
+        flex-direction: column;
+    }
+
+    footer nav {
+        flex-wrap: wrap;
+    }
+
+    footer form {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    footer form input {
+        width: 100%;
     }
 }
