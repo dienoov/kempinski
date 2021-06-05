@@ -355,6 +355,10 @@ header nav.scrolled h1 {
     color: white;
 }
 
+#reservation .room:nth-child(odd) {
+    background-color: var(--kempinski-light-gray);
+}
+
 #reservation .room {
     display: flex;
     align-items: center;
@@ -401,6 +405,105 @@ header nav.scrolled h1 {
     #reservation .room img {
         margin-left: -1rem;
         width: calc(100% + 2rem);
+    }
+}
+
+#instagram {
+    padding: 5rem;
+}
+
+#instagram h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    width: 15rem;
+    margin-bottom: 1rem;
+}
+
+#instagram a::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 0;
+    height: .1rem;
+    background-color: var(--kempinski-black);
+    transition: width .3s ease-out;
+}
+
+#instagram a:hover::after {
+    width: 8.25rem;
+}
+
+#instagram .feed {
+    margin-top: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+}
+
+#instagram figure {
+    flex-shrink: 0;
+    width: 20rem;
+    height: 20rem;
+    margin: 0 1.5rem 1.5rem 0;
+    position: relative;
+}
+
+#instagram img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#instagram figcaption {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .4);
+    color: var(--kempinski-white);
+    opacity: 0;
+    transition: opacity .15s ease-out;
+}
+
+#instagram figcaption:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#instagram figcaption > * {
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+}
+
+#instagram .likes::after {
+    content: " likes";
+}
+
+#instagram .replies::after {
+    content: " replies";
+}
+
+#instagram .feed::-webkit-scrollbar {
+    margin-top: 1rem;
+    height: .15rem;
+}
+
+#instagram .feed::-webkit-scrollbar-track {
+    background-color: var(--kempinski-light-gray);
+}
+
+#instagram .feed::-webkit-scrollbar-thumb {
+    background-color: var(--kempinski-dark-slate);
+}
+
+@media screen and (max-width: 768px) {
+    #instagram {
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
 }
 
